@@ -7,24 +7,59 @@
 
 import SwiftUI
 
+enum LightControl {
+    case red, yellow, green
+}
+
 struct ContentView: View {
+    @State var redLightView = ColorCircleView(color: .red)
+    @State var yellowLightView = ColorCircleView(color: .yellow)
+    @State var greenLightView = ColorCircleView(color: .green)
+    @State var buttonText = "START"
+    @State var currentControl = LightControl.red
+
+    
     var body: some View {
         VStack() {
-            ColorCircleView(color: .red)
-            ColorCircleView(color: .yellow)
-            ColorCircleView(color: .green)
+            redLightView
+            yellowLightView
+            greenLightView
                 Spacer()
-            Button(action: pressedButton) {
-                Text("Press")
-                    .font(.title)
-            }
+            pressButton
         }
         .padding()
     }
     
-    private func pressedButton() {
-        
+    private var pressButton: some View {
+        Button(action: changeLight) {
+            Text(buttonText)
+                .font(.title)
+        }
     }
+    
+    private func changeLight() {
+        
+        if buttonText == "START" {
+            buttonText = "NEXT"
+        }
+
+        switch currentControl {
+        case .red:
+            greenLightView.lightOn = false
+            redLightView.lightOn = true
+            currentControl = .yellow
+        case .yellow:
+            redLightView.lightOn = false
+            yellowLightView.lightOn = true
+            currentControl = .green
+        case .green:
+            yellowLightView.lightOn = false
+            greenLightView.lightOn = true
+            currentControl = .red
+        }
+
+    }
+
 }
 
 struct ContentView_Previews: PreviewProvider {

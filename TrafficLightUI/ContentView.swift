@@ -9,8 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack() {
+            ColorCircleView(color: .red)
+            ColorCircleView(color: .yellow)
+            ColorCircleView(color: .green)
+                Spacer()
+            Button(action: pressedButton) {
+                Text("Press")
+                    .font(.title)
+            }
+        }
+        .padding()
+    }
+    
+    private func pressedButton() {
+        
     }
 }
 

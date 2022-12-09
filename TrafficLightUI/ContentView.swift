@@ -15,8 +15,8 @@ struct ContentView: View {
     @State var redLightView = ColorCircleView(color: .red)
     @State var yellowLightView = ColorCircleView(color: .yellow)
     @State var greenLightView = ColorCircleView(color: .green)
-    @State var buttonText = "START"
     @State var currentControl = LightControl.red
+    @State var buttonText = "START"
 
     
     var body: some View {
@@ -24,21 +24,27 @@ struct ContentView: View {
             redLightView
             yellowLightView
             greenLightView
-                Spacer()
-            pressButton
+            Spacer()
+            pressButtonView
         }
-        .padding()
+        .padding(EdgeInsets(top: 50, leading: 0, bottom: 50, trailing: 0))
     }
     
-    private var pressButton: some View {
+    private var pressButtonView: some View {
         Button(action: changeLight) {
             Text(buttonText)
                 .font(.title)
+                .foregroundColor(Color.white)
+                .frame(width: 100, height: 10)
+                .padding()
         }
+        .background(.blue)
+        .clipShape(Capsule())
+        .overlay(Capsule().stroke(Color.white, lineWidth: 1))
+        .shadow(radius: 10)
     }
     
     private func changeLight() {
-        
         if buttonText == "START" {
             buttonText = "NEXT"
         }
@@ -57,9 +63,7 @@ struct ContentView: View {
             greenLightView.lightOn = true
             currentControl = .red
         }
-
     }
-
 }
 
 struct ContentView_Previews: PreviewProvider {

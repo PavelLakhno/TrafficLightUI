@@ -16,15 +16,9 @@ struct ColorCircleView: View {
     }
     
     var body: some View {
-//        Color(.orange)
-//            .ignoresSafeArea()
-//            .frame(width: 150, height: 150)
-//            .clipShape(Circle())
-//            .overlay(Circle().stroke(Color.white, lineWidth: 2))
-//            .shadow(radius: 10)
         Circle()
             .frame(width: 150, height: 150)
-            .foregroundColor(color)
+            .foregroundColor(lightColor)
             .overlay(Circle().stroke(Color.white, lineWidth: 2))
             .shadow(radius: 10)
     }

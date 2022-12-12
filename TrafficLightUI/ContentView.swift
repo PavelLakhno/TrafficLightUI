@@ -12,55 +12,46 @@ enum LightControl {
 }
 
 struct ContentView: View {
-    @State var redLightView = ColorCircleView(color: .red)
-    @State var yellowLightView = ColorCircleView(color: .yellow)
-    @State var greenLightView = ColorCircleView(color: .green)
-    @State var currentControl = LightControl.red
-    @State var buttonText = "START"
+    @State private var buttonText = "START"
+    
+    @State private var redLightState = 0.3
+    @State private var yellowLightState = 0.3
+    @State private var greenLightState = 0.3
 
+    @State private var currentControl = LightControl.red
     
     var body: some View {
         VStack() {
-            redLightView
-            yellowLightView
-            greenLightView
+            ColorCircleView(color: .red, opacity: redLightState)
+            ColorCircleView(color: .yellow, opacity: yellowLightState)
+            ColorCircleView(color: .green, opacity: greenLightState)
             Spacer()
-            pressButtonView
+            StartButtonView(title: buttonText) {
+                if buttonText == "START" {
+                    buttonText = "NEXT"
+                }
+                changeLight()
+            }
         }
         .padding(EdgeInsets(top: 50, leading: 0, bottom: 50, trailing: 0))
     }
     
-    private var pressButtonView: some View {
-        Button(action: changeLight) {
-            Text(buttonText)
-                .font(.title)
-                .foregroundColor(Color.white)
-                .frame(width: 100, height: 10)
-                .padding()
-        }
-        .background(.blue)
-        .clipShape(Capsule())
-        .overlay(Capsule().stroke(Color.white, lineWidth: 1))
-        .shadow(radius: 10)
-    }
-    
     private func changeLight() {
-        if buttonText == "START" {
-            buttonText = "NEXT"
-        }
-
+        let lightOn = 1.0
+        let lightOff = 0.3
+        
         switch currentControl {
         case .red:
-            greenLightView.lightOn = false
-            redLightView.lightOn = true
+            greenLightState = lightOff
+            redLightState = lightOn
             currentControl = .yellow
         case .yellow:
-            redLightView.lightOn = false
-            yellowLightView.lightOn = true
+            redLightState = lightOff
+            yellowLightState = lightOn
             currentControl = .green
         case .green:
-            yellowLightView.lightOn = false
-            greenLightView.lightOn = true
+            yellowLightState = lightOff
+            greenLightState = lightOn
             currentControl = .red
         }
     }

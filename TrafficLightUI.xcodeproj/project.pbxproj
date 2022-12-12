@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2C028A29470E3E00D00409 /* StartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C028929470E3E00D00409 /* StartButtonView.swift */; };
 		CE9F6674294224AA00C515F8 /* TrafficLightUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F6673294224AA00C515F8 /* TrafficLightUIApp.swift */; };
 		CE9F6676294224AA00C515F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F6675294224AA00C515F8 /* ContentView.swift */; };
 		CE9F6678294224AC00C515F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9F6677294224AC00C515F8 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE2C028929470E3E00D00409 /* StartButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButtonView.swift; sourceTree = "<group>"; };
 		CE9F6670294224AA00C515F8 /* TrafficLightUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrafficLightUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9F6673294224AA00C515F8 /* TrafficLightUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightUIApp.swift; sourceTree = "<group>"; };
 		CE9F6675294224AA00C515F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				CE9F6673294224AA00C515F8 /* TrafficLightUIApp.swift */,
 				CE9F6675294224AA00C515F8 /* ContentView.swift */,
 				CE9F668129422F5200C515F8 /* ColorCircleView.swift */,
+				CE2C028929470E3E00D00409 /* StartButtonView.swift */,
 				CE9F6677294224AC00C515F8 /* Assets.xcassets */,
 				CE9F6679294224AC00C515F8 /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9F668229422F5200C515F8 /* ColorCircleView.swift in Sources */,
+				CE2C028A29470E3E00D00409 /* StartButtonView.swift in Sources */,
 				CE9F6676294224AA00C515F8 /* ContentView.swift in Sources */,
 				CE9F6674294224AA00C515F8 /* TrafficLightUIApp.swift in Sources */,
 			);
